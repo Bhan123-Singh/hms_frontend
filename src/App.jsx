@@ -6,7 +6,10 @@ function App() {
 
   return (
     <>
-      Hospital management
+    <div className='text-red-300 '>
+    Hospital management System
+    </div>
+     
     </>
   )
 }
