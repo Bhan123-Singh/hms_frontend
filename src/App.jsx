@@ -6,9 +6,10 @@ function App() {
 
   return (
     <>
-    <div className='text-red-300 '>
-    Hospital management System
-    </div>
+  <Routes>
+
+    {/* <Route path='/' element={<home/>}></Route> */}
+  </Routes>
      
     </>
   )

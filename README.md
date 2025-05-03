@@ -78,3 +78,9 @@ npm install
  @tailwindcss/line-clamp
 
 ```
+### Add the Toaster for message
+
+```
+react-hot-toast
+
+```
