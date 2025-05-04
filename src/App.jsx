@@ -1,17 +1,42 @@
 
 import './App.css'
-import { Routes } from 'react-router-dom'
+import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import HomePage from './Pages/HomePage'
+import AboutPage from './Pages/AboutPage'
+import Contact from './Pages/ContactPage'
+import Department from './Pages/Department'
+import Appointment from './Pages/Appointment'
 
+const router=createBrowserRouter([
+  {
+    path:'/',
+    element:<HomePage/>
+  },
+  {
+    path:'/about',
+    element:<AboutPage/>
+  },
+  {
+    path:'/contact',
+    element:<Contact/>
+  },
+  {
+    path:'/department',
+    element:<Department/>
+  },
+  {
+    path:'/appointment',
+    element:<Appointment/>
+  }
+  
+])
 
 function App() {
-
+       
 
   return (
     <>
-  <Routes>
-
-    {/* <Route path='/' element={<home/>}></Route> */}
-  </Routes>
+   <RouterProvider router={router}/>
      
     </>
   )
