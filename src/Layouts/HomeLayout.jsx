@@ -55,7 +55,7 @@ function HomeLayout({children}){
                     </li>
 
                     <li>
-                        <Link to='/'>
+                        <Link to='/home'>
                         Home
                         </Link>
                     </li>

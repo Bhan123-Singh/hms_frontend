@@ -10,7 +10,8 @@ function Appointment(){
         name:'',
         email:'',
         phone:'',
-        message:'',   
+        message:'',
+        department:''   
     });
     function handleInputChange(e){
         const {name,value}=e.target;
@@ -43,6 +44,8 @@ function Appointment(){
         setUserInput({
             name:'',
             email:'',
+            phone:'',
+            department:'',
             message:'', 
         });
        }
@@ -106,10 +109,10 @@ Department
     </label>
     
     <select name="department" id="department" className="bg-gray-700">
-        <option value="Neurology">Neurology</option>
-        <option value="EyeCare"> Eye Care</option>
-        <option value="heartCare">Heart Care</option>
-        <option value="gynaecology">Gynaecology</option>
+        <option value={userInput.department}>Neurology</option>
+        <option value={userInput.department}> EyeCare</option>
+        <option value={userInput.department}>HeartCare</option>
+        <option value={userInput.department}>Gynaecology</option>
     </select>
     
 

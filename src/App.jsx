@@ -6,10 +6,16 @@ import AboutPage from './Pages/AboutPage'
 import Contact from './Pages/ContactPage'
 import Department from './Pages/Department'
 import Appointment from './Pages/Appointment'
+import NotFound from './Pages/NotFound'
 
 const router=createBrowserRouter([
+  {path:'/',
+    element:<NotFound/>
+
+  },
+
   {
-    path:'/',
+    path:'/home',
     element:<HomePage/>
   },
   {
