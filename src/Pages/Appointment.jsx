@@ -6,34 +6,49 @@ import axiosInstance from "../Helpers/axiosInstance";
 
 
 function Appointment(){
-    const [userInput,setUserInput]=useState({
-        name:'',
-        email:'',
-        phone:'',
-        message:'',
-        department:''   
-    });
-    function handleInputChange(e){
-        const {name,value}=e.target;
-        console.log(name,value);
-        setUserInput({
-            ...userInput,
-            [name]:value 
-        })
-    }
+
+    const departmentArray=[
+        'heartcare','eyecare',,'neurology','gynaecology'];
+  
+ 
+    const [name,setName]=useState('');
+    const [email,setEmail]=useState('');
+    const [phone,setPhone]=useState('');
+    const [department,setDepartment]=useState('select department')
+    const [message,setMessage]=useState('')
+    // function handleInputChange(e){
+    //     const {name,value}=e.target;
+    //     console.log(name,value);
+    //     setUserInput({
+    //         ...userInput,
+    //         [name]:value 
+    //     })
+    // }
     async function onFormSubmit(e) {
         e.preventDefault();
-        if(!userInput.email || !userInput.name || !userInput.message){
+        if(!email || !name || !phone || !department  || !message){
             toast.error("All field are Mandatory!");
             return;
         }
       
-       if(!isEmail(userInput.email)){
+       if(!isEmail(email)){
         toast.error("Invalid Email");
         return;
        }
+      
+
+
+
+
        try{
-       const response=axiosInstance.post("/appointment",userInput)
+       const response=axiosInstance.post("/appointment",{
+        name,
+        email,
+        phone,
+        department,
+        message
+       })
+
        toast.promise(response,{
         loading:"Booking your Appointment...",
         success:"Book Appointment successfully",
@@ -41,13 +56,12 @@ function Appointment(){
        });
        const contactResponse=await response;
        if(contactResponse?.data?.success){
-        setUserInput({
-            name:'',
-            email:'',
-            phone:'',
-            department:'',
-            message:'', 
-        });
+        setName('');
+        setEmail('');
+        setPhone('');
+        setDepartment('');
+        setMessage('')
+
        }
        }
        catch(err){
@@ -77,8 +91,11 @@ Name
     id="name"
     name="name"
     placeholder="enter your name..."
-    onChange={handleInputChange}
-    value={userInput.name}/>
+    value={name}
+    onChange={(e)=>{{setName(e.target.value)}
+
+    }}
+    />
 
 <label htmlFor="email"
     className="text-xl font-semibold">
@@ -89,8 +106,9 @@ Email
     id="email"
     name="email"
     placeholder="Enter your email..."
-    onChange={handleInputChange}
-    value={userInput.email}/>
+    value={email}
+    onChange={(e)=>{setEmail(e.target.value)}}/>
+   
 
     <label htmlFor="phone"
     className="text-xl font-semibold">
@@ -101,18 +119,26 @@ Phone No.
     id="phone"
     name="phone"
     placeholder="Enter your Phone No..."
-    onChange={handleInputChange}
-    value={userInput.phone}/>
-        <label htmlFor="department"
+    value={phone}
+    onChange={(e)=>{setPhone(e.target.value)}}/>
+       <label htmlFor="department"
     className="text-xl font-semibold">
 Department
     </label>
+  
     
-    <select name="department" id="department" className="bg-gray-700">
-        <option value={userInput.department}>Neurology</option>
-        <option value={userInput.department}> EyeCare</option>
-        <option value={userInput.department}>HeartCare</option>
-        <option value={userInput.department}>Gynaecology</option>
+    <select name="department" id="department" value={department}
+     className="bg-gray-400 border px-2 py-1 rounded-sm  " 
+    onChange={(e)=>{setDepartment(e.target.value)}}>
+        {
+            departmentArray.map((depart,index)=>(
+                <option value={depart} key={index}>{depart}</option>
+               
+            ))
+        }
+        
+   
+       
     </select>
     
 
@@ -125,8 +151,8 @@ Message
     id="message"
     name="message"
     placeholder="enter your message..."
-    onChange={handleInputChange}
-    value={userInput.message}/>
+    value={message}
+    onChange={(e)=>{setMessage(e.target.value)}}/>
 </div>
 <button  type="submit"
 className="w-full bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold text-lg cursor-pointer"    >
