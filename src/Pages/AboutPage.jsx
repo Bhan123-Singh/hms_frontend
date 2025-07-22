@@ -9,10 +9,10 @@ import spsingheye from '../assets/images/spsingheye.jpeg'
 function AboutPage() {
   return (
   <HomeLayout>
-      <div className="pl-20 pt-20 flex flex-col text-white">
-            <div className="flex items-center gap-5 mx-10">
+      <div className=" pt-20  flex md:flex flex-col  text-white">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-5 mx-10">
                 <section className="w-1/2 space-y-10">
-                <h1 className="text-5xl text-yellow-500 font-semibold">
+                <h1 className="text-3xl text-yellow-500 font-semibold md:text-5xl">
                 We are developing a healthcare
                 system around you
 
@@ -26,25 +26,25 @@ function AboutPage() {
                 </p>
 
                 </section>
-                <div className="w-1/2">
-                <img src={icuabout} alt="aboutusPage" className="drop-shadow-6xl rounded-lg w-3/4" />
+                <div className="w-full md:w-1/2 flex justify-center ">
+                <img src={icuabout} alt="aboutusPage" className="drop-shadow-6xl rounded-lg w-4/5 " />
 
                 </div>
 
             </div>
             <h1 className='text-center font-semibold text-5xl text-yellow-400'>Our Doctors</h1>
 
-            <div className="carousel w-1/2 my-16 m-auto ">
+            <div className="carousel w-full md:w-1/2 my-16 m-auto ">
   <div id="slide1" className="carousel-item relative w-full">
-    <div className="flex flex-col items-center justify-center gap-4 px-[15%] ">
+    <div className="flex flex-col items-center justify-center gap-4  px-4 sm:px-8 md:px-16 ">
     <img
       src={prabhatneuro}
-      className="w-40 rounded-full border-2 border-gray-400" />
+      className="w-full max-w-sm border-2 rounded-sm border-gray-400" />
          <h3 className="text-2xl font-semibold">
         Dr. Prabhat Singh
 
       </h3>
-      <p className="text-gray-200 text-xl">
+      <p className="text-gray-200 text-xl sm:text-2xl">
       {  " Dr Prabhat Singh is an esteemed Neurologist (Neuro Physician) in AllahabadHe is a MBBS, MD, DM. Some of the neurology diseases treated by him are loss of sensation, meningitis"}
 
       </p>
@@ -58,15 +58,15 @@ function AboutPage() {
     </div>
   
   <div id="slide2" className="carousel-item relative w-full">
-  <div className="flex flex-col items-center justify-center gap-4 px-[15%]">
+  <div className="flex flex-col items-center justify-center gap-4  px-8 md:px-16">
     <img
       src={kartikeheart}
-      className="w-40 rounded-full border-2 border-gray-400" />
+      className="w-full max-w-sm border-2 rounded-sm border-gray-400" />
       <h3 className="text-2xl font-semibold">
         Dr. Kartike Sharma
 
       </h3>
-      <p className="text-gray-200 text-xl">
+      <p className="text-gray-200 text-xl sm:text-2xl">
       {"“Dr. Kartike Sharma is an interventional cardiologist at the Prayag Heart Care Center. He specialises in treating simple and complex cardiac diseases and problems"}
 
       </p>
@@ -78,15 +78,15 @@ function AboutPage() {
   </div>
   </div>
   <div id="slide3" className="carousel-item relative w-full">
-  <div className="flex flex-col items-center justify-center gap-4 px-[15%]">
+  <div className="flex flex-col items-center justify-center gap-4  px-4 sm:px-8 md:px-16">
     <img
       src={rekhagyno}
-      className="w-40 rounded-full border-2 border-gray-400" />
+      className="w-full max-w-sm border-2 rounded-sm border-gray-400" />
            <h3 className="text-2xl font-semibold">
         Rekha Shrivastva
 
       </h3>
-       <p className="text-gray-200 text-xl">
+       <p className="text-gray-200 text-xl sm:text-2xl">
       {"Dr. Rekha Shrivastva is a renowned Gynecologist in Allahabad. She has completed her MBBS and MS and a practicing Gynecologist"}
 
       </p>
@@ -98,16 +98,16 @@ function AboutPage() {
   </div>
   </div>
   <div id="slide4" className="carousel-item relative w-full">
-  <div className="flex flex-col items-center justify-center gap-4 px-[15%]">
+  <div className="flex flex-col items-center justify-center gap-4  px-4 sm:px-8 md:px-16">
     <img
       src={spsingheye}
-      className="w-40 rounded-full border-2 border-gray-400" />
+      className="w-full max-w-sm border-2 rounded-sm border-gray-400" />
 
 <h3 className="text-2xl font-semibold">
         Dr. Shan Singh
 
       </h3>
-       <p className="text-gray-200 text-xl">
+       <p className="text-gray-200 text-xl sm:text-2xl">
       {" Dr. Shan Singh has 25 years of experience in his field. He prioritises attentive listening to his patients' needs before offering tailored recommendations. He treats all kinds of eye-related problems."}
 
       </p>

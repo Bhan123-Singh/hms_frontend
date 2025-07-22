@@ -1,12 +1,16 @@
 import {configureStore }from '@reduxjs/toolkit';
-import authSliceReducer from './Slices/authSlice';
+import authSliceReducer from './Slices/AuthSlice';
+import statSliceReducer from './Slices/statSlice';
+import appointmentSliceReducer from './Slices/appointmentSlice'
 
 const store=configureStore({
     reducer:{
-        auth:authSliceReducer
+        auth:authSliceReducer,
+        stat:statSliceReducer,
+        appointment:appointmentSliceReducer
     },
     devTools:true
 })
 
 
-export default store;
+export default store; 

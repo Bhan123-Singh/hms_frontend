@@ -7,15 +7,22 @@ import Contact from './Pages/ContactPage'
 import Department from './Pages/Department'
 import Appointment from './Pages/Appointment'
 import NotFound from './Pages/NotFound'
+import Login from './Pages/Login'
+import Signup from './Pages/Signup'
+import Profile from './Pages/User/Profile'
+import AdminDashboard from './Pages/Dashboard/AdminDashboard'
+
+
+
 
 const router=createBrowserRouter([
-  {path:'/',
+  {path:'*',
     element:<NotFound/>
 
   },
 
   {
-    path:'/home',
+    path:'/',
     element:<HomePage/>
   },
   {
@@ -33,8 +40,28 @@ const router=createBrowserRouter([
   {
     path:'/appointment',
     element:<Appointment/>
+  },
+  {
+    path:'/login',
+    element:<Login/>
+  },
+  {
+    path:'/signup',
+    element:<Signup/>
+  },
+   {
+    path:'/user/profile',
+    element:<Profile/>
+  },
+   {
+    path:'/logout'
+    
   }
-  
+  ,
+  {
+    path:'/admin/dashboard',
+    element:<AdminDashboard/>
+  }
 ])
 
 function App() {

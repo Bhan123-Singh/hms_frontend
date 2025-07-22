@@ -9,6 +9,7 @@ function Contact(){
     const [userInput,setUserInput]=useState({
         name:'',
         email:'',
+        phone:'',
         message:'',   
     });
     function handleInputChange(e){
@@ -21,7 +22,7 @@ function Contact(){
     }
     async function onFormSubmit(e) {
         e.preventDefault();
-        if(!userInput.email || !userInput.name || !userInput.message){
+        if(!userInput.email || !userInput.name || !userInput.phone || !userInput.message){
             toast.error("All field are Mandatory!");
             return;
         }
@@ -32,6 +33,7 @@ function Contact(){
        }
        try{
        const response=axiosInstance.post("/contact",userInput)
+       console.log("response userInput",response)
        toast.promise(response,{
         loading:"submiting your message...",
         success:"form submitted successfully",
@@ -42,6 +44,7 @@ function Contact(){
         setUserInput({
             name:'',
             email:'',
+            phone:'',
             message:'', 
         });
        }
@@ -76,7 +79,7 @@ Name
     onChange={handleInputChange}
     value={userInput.name}/>
 
-<label htmlFor="name"
+<label htmlFor="email"
     className="text-xl font-semibold">
 Email
     </label>
@@ -87,6 +90,18 @@ Email
     placeholder="Enter your email..."
     onChange={handleInputChange}
     value={userInput.email}/>
+
+<label htmlFor="phone"
+    className="text-xl font-semibold">
+Phone No.
+    </label>
+    <input type="number" 
+    className="bg-transparent border px-2 py-1 rounded-sm"
+    id="phone"
+    name="phone"
+    placeholder="Enter your email..."
+    onChange={handleInputChange}
+    value={userInput.phone}/>
 
 <label htmlFor="message"
     className="text-xl font-semibold">
